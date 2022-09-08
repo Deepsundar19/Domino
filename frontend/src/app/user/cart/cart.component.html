@@ -1,0 +1,80 @@
+<app-user></app-user>
+
+<div class="background">
+    <div class="container" id="container1">
+        <div class="row">
+
+            <div class="column" *ngFor="let item of listPizzas">
+
+                <div class="parent">
+                    <div class="preview">
+                        <!-- <center> -->
+                        <img src="../../../assets/pizza/{{item.pizzaImage}} " alt="" class="img-responsive">
+                        <!-- </center> -->
+                    </div>
+
+                    <div class="info">
+
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <h6 class="mat-subheading-2">{{item.pizzaName}}</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6 class="mat-subheading-2">Size:-</h6>
+                                </td>
+                                <td>
+                                    <h6 class="mat-subheading-2">{{item.pizzaType}}</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6 class="mat-subheading-2">Price:-</h6>
+                                </td>
+
+                                <td>
+                                    <h6 class="mat-subheading-2"><span class="product-price mat-subheading-2">{{item.pizzaPrice}}</span>RS</h6>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <h6 class="mat-subheading-2">Quantity:-</h6>
+                                </td>
+
+                                <td>
+                                    <h6 class="mat-subheading-2">{{item.pizzaQuantity}}</h6>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                        <button mat-raised-button color="warn" class="btnn" (click)="deletePizza(item.pizzaName)">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="parent" style="background-color:rgb(235, 243, 251);margin-top: 15px;margin-bottom: 150px;"
+                id="lastcol">
+
+                <div class="info">
+
+                    <p style="margin-top: 5px;margin-bottom: 5px;">total = <b>Rs </b></p>
+                    <p style="margin-top: 5px;margin-bottom: 5px;">delivery charge = <b>Rs.50</b></p>
+                    <p style="margin-top: 5px;margin-bottom: 5px;">grand total =<b>Rs.</b></p>
+                    <button class="btn btn-success" id="last" style="margin-top: 5px;margin-bottom: 5px;"
+                        routerLink="/checkout">Check out</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<app-user></app-user>
+
+<div class="background">
+    <div class="container">
+        <form [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+            <h3 class="mb-2 text-light mat-headline">Add New Address</h3>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Ex. Deepsundar" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Mobile</mat-label>
+                <input type="tel" matInput placeholder="Ex. Deepsundar" formControlName="mobile">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Pincode</mat-label>
+                <input type="number" matInput placeholder="Ex. Deepsundar" formControlName="pincode">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>State</mat-label>
+                <input type="text" matInput placeholder="Ex. Deepsundar" formControlName="state">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Address</mat-label>
+                <input type="text" matInput placeholder="Ex. Deepsundar" formControlName="address">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Locality/Town</mat-label>
+                <input type="text" matInput placeholder="Ex. Deepsundar" formControlName="locality">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>District</mat-label>
+                <input type="text" matInput placeholder="Ex. Deepsundar" formControlName="district">
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="accent" class="me-3 mt-3" [disabled]="!checkoutForm.valid">Place Order</button>
+            <button type="reset" mat-raised-button color="accent">Reset</button>
+        </form>
+    </div>
+</div>

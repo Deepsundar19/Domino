@@ -1,0 +1,29 @@
+<app-user></app-user>
+
+<div class="background">
+  <div class="area">
+    <form [formGroup]="searchBar" class="d-flex searchbar" role="search" (ngSubmit)="onSearch()">
+      <input class="form-control me-2" type="search" placeholder="Search Pizza By Name" aria-label="Search"
+        formControlName="searchBox">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="row gy-4 g-5 container-fluid contain">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let item of listPizzas | searchFilter:searchText">
+      <div class="card text-bg-dark h-100">
+        <img src="../../../assets/pizza/{{item.pizzaImage}}" class="card-img-top " alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center mat-title">{{item.pizzaName}} </h5>
+          <div class="d-flex justify-content-around">
+            <p class="card-text"><b>{{item.pizzaType}} </b></p>
+            <p class="text--medium rs"><b>Rs.{{item.pizzaPrice}} </b></p>
+          </div>
+          <div class="d-flex justify-content-around align-item-center">
+            <a class="btn btn-primary" (click)="addToCart(item)">+Add</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

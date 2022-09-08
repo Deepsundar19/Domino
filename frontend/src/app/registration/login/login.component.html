@@ -1,0 +1,40 @@
+<app-registration></app-registration>
+<div class="background">
+    <div class="container">
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div>
+                <button type="button" mat-raised-button color="primary" class="me-3" routerLink="/userLogin">User</button>
+                <button type="button" mat-raised-button color="primary" routerLink="/adminLogin">Admin</button>
+            </div>
+            <hr class="border-bottom border-light">
+            <h3 class="mb-2 text-light mat-headline"><strong>User Login Info</strong></h3>
+            <mat-form-field appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+                <mat-icon matSuffix>emailt</mat-icon>
+                <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].hasError('required')">Enter email!</mat-error>
+                <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].hasError('email')">Enter
+                    valid email!</mat-error>
+                <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].hasError('minlength')">Minimum
+                    7 characters required! </mat-error>
+                <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].hasError('maxlength')">Maximum
+                    30 characters!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Ex. gthfr876" formControlName="password">
+                <mat-icon matSuffix>security</mat-icon>
+                <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')">Enter
+                    password!</mat-error>
+                <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('minlength')">Minimum
+                    7 characters required!</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="accent" class="me-3" [disabled]="!loginForm.valid">Login</button>
+            <button type="reset" mat-raised-button color="accent">Reset</button>
+            <br><br>
+            <div class="text-white">Not a member? <a routerLink="/userSignup">Signup now</a></div>
+
+        </form>
+    </div>
+</div>    

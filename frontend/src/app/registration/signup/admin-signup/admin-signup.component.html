@@ -1,0 +1,64 @@
+<app-registration></app-registration>
+<div class="background">
+    <div class="container">
+        <form [formGroup]="adminSignupForm" (ngSubmit)="onSubmit()">
+            <div>
+                <button type="button" mat-raised-button color="primary" class="me-3" routerLink="/userSignup">User</button>
+                <button type="button" mat-raised-button color="primary" routerLink="/adminSignup">Admin</button>
+            </div>
+            <hr class="border-bottom border-light">
+            <h3 class="mb-1 text-light mat-headline"><strong> Admin Registration Info</strong></h3>
+            <mat-form-field appearance="legacy">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Ex. Deepsundar Behera" formControlName="name">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <mat-error *ngIf="adminSignupForm.controls['name'].touched && adminSignupForm.controls['name'].hasError('required')">Enter Name!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+                <mat-icon matSuffix>emailt</mat-icon>
+                <mat-error *ngIf="adminSignupForm.controls['email'].touched && adminSignupForm.controls['email'].hasError('required')">Enter email!</mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['email'].touched && adminSignupForm.controls['email'].hasError('email')">Enter
+                    valid email!</mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['email'].touched && adminSignupForm.controls['email'].hasError('minlength')">Minimum
+                    7 characters required! </mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['email'].touched && adminSignupForm.controls['email'].hasError('maxlength')">Maximum
+                    30 characters!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Phone</mat-label>
+                <span matPrefix>+91 &nbsp;</span>
+                <input type="tel" matInput placeholder="Ex. 6370292228" formControlName="phone">
+                <mat-icon matSuffix>smartphone</mat-icon>
+                <mat-error *ngIf="adminSignupForm.controls['phone'].touched && adminSignupForm.controls['phone'].hasError('required')">Enter
+                    Phone No!</mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['phone'].touched && adminSignupForm.controls['phone'].hasError('minlength')">Minimum
+                    10 digits required!</mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['phone'].touched && adminSignupForm.controls['phone'].hasError('maxlength')">Maximum
+                    10 digits! </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Ex. gthfr876" formControlName="password">
+                <mat-icon matSuffix>security</mat-icon>
+                <mat-error *ngIf="adminSignupForm.controls['password'].touched && adminSignupForm.controls['password'].hasError('required')">Enter
+                    password!</mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['password'].touched && adminSignupForm.controls['password'].hasError('minlength')">Minimum
+                    7 characters required!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput placeholder="Re-enter your password" formControlName="confirmPassword">
+                <mat-icon matSuffix>security</mat-icon>
+                <mat-error *ngIf="adminSignupForm.controls['confirmPassword'].touched && adminSignupForm.controls['confirmPassword'].hasError('required')">Re-enter
+                    password!</mat-error>
+                <mat-error *ngIf="adminSignupForm.controls['confirmPassword'].touched && adminSignupForm.controls['confirmPassword'].hasError('minlength')">Minimum
+                    7 characters required!</mat-error>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="accent" class="me-3" [disabled]="!adminSignupForm.valid">Submit</button>
+            <button type="reset" mat-raised-button color="accent">Reset</button>
+        </form>
+
+    </div>
+</div>

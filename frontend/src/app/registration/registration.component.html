@@ -1,0 +1,17 @@
+
+
+<mat-toolbar class="fixed-top">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/">
+        <mat-icon > local_pizza</mat-icon>
+    </button>
+    <span routerLink="/" class="cursor">{{title}}</span>
+    <span class="example-spacer"></span>
+    <div class="mx-1">
+        <button mat-stroked-button color="accent" class="mx-1" routerLink="/userLogin">Login</button>
+        <button mat-stroked-button color="warn" routerLink="/userSignup">Signup</button>
+    </div>
+</mat-toolbar>
+
+
+
+<router-outlet></router-outlet>

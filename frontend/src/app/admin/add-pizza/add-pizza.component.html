@@ -1,0 +1,55 @@
+<app-admin></app-admin>
+
+<div class="background">
+    <div class="container">
+        <form [formGroup]="addPizza" (ngSubmit)="addPizzas()">
+            <!-- <h3 class="mb-4 text-light mat-headline"><strong>Add pizza for sell</strong></h3>
+            <div class="mb-3 input-group-lg">
+                <input type="text" placeholder="Pizza Name" class="form-control" formControlName="pizzaName">
+            </div>
+            <div class="mb-3 input-group-lg">
+                <select class="form-select" formControlName="pizzaType" aria-label="Default select example">
+                    <option selected >--Select Pizza Type--</option>
+                    <option >Small</option>
+                    <option >Medium</option>
+                    <option >Large</option>
+                  </select>
+            </div>
+            <div class="mb-3 input-group-lg">
+                <input type="number" placeholder="Pizza Price" class="form-control" formControlName="pizzaPrice" min="1">
+            </div>
+            <div class="mb-3 input-group-lg">
+                <input type="file" placeholder="Choose Pizza Image" class="form-control" formControlName="pizzaImage">
+            </div>
+            <button type="Add Pizza" class="btn btn-success me-3" [disabled]="!addPizza.valid">Add Pizza</button>
+            <button type="reset" class="btn btn-success">Reset</button> -->
+
+            <h3 class="mb-4 text-light mat-headline"><strong>ADD PIZZA FOR SELL</strong></h3>
+            <mat-form-field appearance="legacy">
+                <mat-label>Pizza Name</mat-label>
+                <input type="email" matInput placeholder="Ex. Margherita" formControlName="pizzaName">
+                <mat-icon matSuffix>local_pizza</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>--Select Pizza Type--</mat-label>
+                <mat-select formControlName="pizzaType">
+                    <mat-option>Clear</mat-option>
+                    <mat-option value="Small">Small</mat-option>
+                    <mat-option value="Medium">Medium</mat-option>
+                    <mat-option value="Large">Large</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Pizza Price</mat-label>
+                <span matPrefix>₹ &nbsp;</span>
+                <input type="number" matInput placeholder="Ex. 150" formControlName="pizzaPrice">
+            </mat-form-field>
+            <div class="mb-3 input-group-lg">
+                <input type="file" placeholder="Choose Pizza Image" class="form-control" formControlName="pizzaImage">
+            </div>
+            <button type="submit" mat-raised-button color="accent" class="me-3" [disabled]="!addPizza.valid">Add Pizza</button>
+            <button type="reset" mat-raised-button color="accent">Reset</button>
+            
+        </form>
+    </div>
+</div>
