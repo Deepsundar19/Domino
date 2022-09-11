@@ -33,7 +33,7 @@ const getCurrentPizza = async (req, res) => {
   try {
     const myPizaa = await pizza.findOne({ pizzaName: req.params.pizzaName });
     if (!myPizaa) {
-      return res.status(406).json('not found')
+      return res.status(404).json('not found')
     } else {
       res.status(200).json(myPizaa);
     }
@@ -47,7 +47,7 @@ const editPizza = async (req, res) => {
   try {
     const myPizaa = await pizza.findOneAndUpdate({ pizzaName: req.params.pizzaName }, req.body, { new: true });
     if (!myPizaa) {
-      return res.status(406).json('not found')
+      return res.status(404).json('not found')
     } else {
       res.status(200).json(myPizaa);
     }
@@ -61,7 +61,7 @@ const deletePizza = async (req, res) => {
   try {
     const myPizaa = await pizza.findOneAndDelete({ pizzaName: req.params.pizzaName });
     if (!myPizaa) {
-      return res.status(406).json('not found')
+      return res.status(404).json('not found')
     } else {
       res.status(200).json(myPizaa);
     }

@@ -33,7 +33,7 @@ const deleteCartPizza = async (req,res) =>{
     try{
         const myPizaas=await cartPizza.findOneAndDelete({pizzaName:req.params.pizzaName});
         if(!myPizaas){
-          return res.status(406).json('not found')
+          return res.status(404).json('not found')
         }else{
           res.status(200).json(myPizaas);
         }

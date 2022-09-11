@@ -10,7 +10,7 @@ const userSignup =async (req,res) =>{
 
         const existingUser = await userAuthentication.findOne({email:email});
         if(existingUser){
-            return res.status(406).json({message:"User is already exist"});
+            return res.status(404).json({message:"User is already exist"});
         }
 
         else if (password === confirmPassword) {
@@ -27,7 +27,7 @@ const userSignup =async (req,res) =>{
             console.log(token);
 
         } else {
-            res.status(406).json("password not matching!");
+            res.status(404).json("password not matching!");
         }
     } catch (error) {
         res.status(400).json('error');
@@ -61,7 +61,7 @@ const adminSignup= async (req,res) =>{
 
         const existingUser = await adminAuthentication.findOne({email:email});
         if(existingUser){
-            return res.status(406).json({message:"User is already exist"});
+            return res.status(404).json({message:"User is already exist"});
         }
 
         else if (password === confirmPassword) {
@@ -78,7 +78,7 @@ const adminSignup= async (req,res) =>{
             console.log(token);
 
         } else {
-            res.status(406).json("password not matching!");
+            res.status(404).json("password not matching!");
         }
     } catch (error) {
         res.status(400).json(error);
@@ -91,7 +91,7 @@ const adminLogin= async(req,res) =>{
 
         const useremail = await adminAuthentication.findOne({ email: email });
         if (!useremail) {
-            return res.status(406).json({ success: false, message: "User not found" });
+            return res.status(404).json({ success: false, message: "User not found" });
         } else if (useremail.password === password) {
             const token = jwt.sign({ email: useremail.email.toString() }, secret_key);
             
@@ -99,7 +99,7 @@ const adminLogin= async(req,res) =>{
             console.log(token);
 
         } else {
-            res.status(406).json("Invalid Credentials");
+            res.status(404).json("Invalid Credentials");
         }
     } catch (error) {
         res.status(400).json("Error");
